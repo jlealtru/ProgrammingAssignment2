@@ -1,3 +1,5 @@
+#Jesus Leal Trujillo program assignment 2
+
 ## Put comments here that give an overall description of what your
 ## functions do
 
@@ -7,7 +9,7 @@
 makeCacheMatrix <- function(x = matrix()){
   #set the inverse as null as default
   inv <- NULL
-  ##
+  #
   set = function(y) {
     #This function allows the cachesolve function to check if the inverse of a matrix exist 
     #and if it has not changed then retrieves the value. 
@@ -22,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()){
        }
 
 #This function returns the inverse of a matrix created with
-#the makeCacheMatrix function, defined previously.
+#the makeCacheMatrix function defined previously.
 #The function checks if the cached inverse is available, if this is the case
 #it retrieves it, otherwise it computes the inverse, caches it, and returns it.
 cachesolve <- function(x, ...) { 
@@ -36,9 +38,10 @@ cachesolve <- function(x, ...) {
   x$setinv(inv)
   return(inv)
 }
-
-test <- matrix(runif(12,1,100),3,3)
-# generate the makeCacheMatrix object with this matrix
-testCached <- makeCacheMatrix(test)
-# from now on calculate or retrieve calculated inversion using the cacheSolve function
-testInv <- cachesolve(testCached)
+#we now test the code with a 3x3 matrix based on a uniform distribution that takes
+#values between 1 and 100
+proof <- matrix(runif(12,1,100),3,3)
+#generate the makeCacheMatrix object with this matrix
+test <- makeCacheMatrix(proof)
+#we calculate or retrieve the calculated inversion using the cachesolve function
+testInv <- cachesolve(test)
